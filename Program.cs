@@ -1,13 +1,15 @@
 using InclusaoDiversidadeEmpresas.Data;
+using InclusaoDiversidadeEmpresas.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IColaboradorService, ColaboradorService>();
 
 #region Configuracao do banco de dados
-    var connectionString = builder.Configuration.GetConnectionString("DatabaseConnection");
+var connectionString = builder.Configuration.GetConnectionString("DatabaseConnection");
 builder.Services.AddDbContext<DatabaseContext>(opt =>
     opt.UseOracle(connectionString).EnableSensitiveDataLogging(true)
     );

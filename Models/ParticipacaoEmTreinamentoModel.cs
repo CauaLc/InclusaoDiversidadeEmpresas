@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema; 
 
 namespace InclusaoDiversidadeEmpresas.Models
 {
@@ -6,11 +7,14 @@ namespace InclusaoDiversidadeEmpresas.Models
     {
         public long Id { get; set; }
 
+      
         public long ColaboradorId { get; set; }
-        public required Colaborador Colaborador { get; set; }
+      
+        public Colaborador? Colaborador { get; set; }
 
         public long TreinamentoId { get; set; }
-        public required Treinamento Treinamento { get; set; }
+     
+        public Treinamento? Treinamento { get; set; }
 
         public bool Completo { get; set; }
 
